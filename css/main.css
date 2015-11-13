@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Tahoma, "hiragino sans gb", Helvetica;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #777;
+}
+
+hr {
+    /*为了兼容浏览器*/
+    height: 1px;
+    border-width: 0;
+    color: #ccc;
+    background-color: #ccc
+}
+
+
+/*---------------------------------------------------------*/
+
+#header {
+    width: 100%;
+    height: 140px;
+    border-bottom: 1px solid #ccc;
+}
+
+#header_nav {}
+
+#header_top {
+    width: 100%;
+    height: 30px;
+    background-color: #000;
+}
+
+#footer {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: #ccc;
+}
+
+#con {
+    width: 1080px;
+    height: 1700px;
+    margin: 0 auto;
+}
+
+#left {
+    width: 700px;
+    height: 100%;
+    float: left;
+    margin-top: 20px;
+}
+
+#right {
+    width: 320px;
+    height: 100%;
+    float: right;
+}
+
+#left_imgplay {
+    width: 100%;
+    height: 280px;
+    position: relative;
+}
+
+#left_music {
+    width: 100%;
+    height: 375px;
+    margin-top: 20px;
+}
+
+#left_mv {
+    width: 100%;
+    height: 320px;
+}
+
+#left_recommend {
+    width: 100%;
+    height: 560px;
+}
+
+#right_login {
+    width: 100%;
+    height: 150px;
+    border-bottom: 1px solid #ccc;
+}
+
+#right_sort {
+    width: 305px;
+    height: 355px;
+    padding-left: 15px;
+    border-bottom: 1px dotted #ccc;
+}
+
+#right_singer {
+    width: 100%;
+    height: 280px;
+    border-bottom: 1px dotted #ccc;
+}
+
+#right_activity {
+    width: 100%;
+    height: 300px;
+}
+
+.right_list {
+    width: 100%;
+    height: 85px;
+    font-size: 12px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#recommend_left {
+    width: 345px;
+    height: 100%;
+    float: left;
+}
+
+#recommend_right {
+    width: 339px;
+    height: 100%;
+    float: right;
+    padding-left: 10px;
+}
+
+#header_nav {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+/*-------------header_begin--------------------------*/
+
+#header_top ul {
+    float: right;
+    color: #777;
+    font-size: 15px;
+    margin-right: 50px;
+}
+
+#header_top li {
+    float: left;
+    line-height: 30px;
+}
+
+#header_top a {
+    color: #eee;
+}
+
+#header_top a:hover {
+    color: #F9A13B;
+}
+
+#logo {
+    height: 105px;
+    float: left;
+    /*脱离文档流*/
+}
+
+#logo~ul {
+    /*选择前面有#logo的ul元素*/
+    display: inline-block;
+}
+
+#logo~ul li {
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 3px;
+    border-top: 6px solid #fff;
+    margin: 0 5px;
+    /*留白*/
+    padding: 20px 20px 10px 20px;
+}
+
+#logo~ul li:hover {
+    border-top: 6px solid #F9A13B;
+}
+
+.nav_list li {
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 0px 16px 5px 16px;
+}
+
+.nav_list a:hover {
+    color: #F9A13B;
+}
+
+.nav_list li:first-child {
+    border-left: none;
+}
+
+
+/*-------------header_end-------------------------*/
+
+
+/*---------------图片轮播开始------------------------*/
+
+#prev,
+#next {
+    font-size: 30px;
+    background-color: rgba(39, 39, 39, 0.5);
+    color: #A6A1A1;
+    padding: 10px;
+    position: absolute;
+}
+
+#prev {
+    top: 125px;
+    left: 0px;
+}
+
+#next {
+    top: 125px;
+    left: 662px;
+}
+
+#prev:hover,
+#next:hover {
+    color: #eee;
+    background-color: rgba(161, 161, 161, 0.7);
+}
+
+.range {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: rgba(161, 161, 161, 0.5);
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.range:hover {
+    background-color: #eee;
+}
+
+.rangediv {
+    position: absolute;
+    top: 245px;
+    left: 255px;
+    vertical-align:
+}
+
+
+/*----------------图片轮播结束------------------------------*/
+
+
+/*---------------在线首发和mv首播开始----------------------------------*/
+
+#left_music a.img,
+#left_mv a.img {
+    position: relative;
+}
+
+#left_music img {
+    margin: 10px 10px 10px -2px;
+    width: 128px;
+    height: 128px;
+}
+
+#left_mv img {
+    margin: 10px 10px 10px -2px;
+    width: 160px;
+    height: 90px;
+}
+
+#left_music span,
+#left_mv span {
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    background-color: rgba(161, 161, 161, 0.5);
+    z-index: 100;
+    line-height: 25px;
+    color: #eee;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#left_mv h2,
+#left_music h2,
+#left_recommend h2 {
+    border-left: 5px solid #F9A13B;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#left_music span {
+    width: 128px;
+    margin: 10px 10px 10px -138px
+}
+
+#left_mv span {
+    width: 160px;
+    margin: 10px 10px 10px -170px;
+}
+
+#left_mv li,
+#left_music li {
+    float: left;
+}
+
+.ellipsis {
+    display: inline-block;
+    text-overflow: ellipsis;
+    /*文字隐藏后添加省略号*/
+    white-space: nowrap;
+    /*强制不换行*/
+    overflow: hidden;
+}
+
+i.playicon {
+    position: absolute;
+    top: -80px;
+    left: 10px;
+    display: none;
+}
+
+
+/*---------------在线首发和mv首播结束---------------------------------*/
+
+
+/*----------------推荐-------------------------------------------------*/
+
+#left_recommend span.language {
+    margin-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    border-right: 2px solid #ccc;
+    cursor: pointer
+}
+
+#left_recommend li {
+    line-height: 25px;
+}
+
+#recommend_left {
+    border-right: 1px dotted #ccc;
+}
+
+.mname {
+    font-size: 14px;
+    color: #F9A13B;
+    font-weight: 600;
+}
+
+.msinger {
+    font-size: 14px;
+}
+
+a.mname:hover {
+    color: #fab769;
+    ;
+}
+
+a.msinger:hover {
+    color: #565555;
+}
+
+
+/*-------------------推荐结束--------------------------------------------*/
+
+
+/*----------------------right--------------------------------------------*/
+
+#right_login p {
+    font-size: 35px;
+    color: #8B8B8B;
+    font-family: "幼圆";
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 30px;
+    letter-spacing: 6px;
+}
+
+#right_login button {
+    border: 0;
+    width: 133px;
+    height: 45px;
+    cursor: pointer;
+    background-color: #F9A13B;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 2px 2px 5px #ccc;
+    font-size: 22px;
+    margin: 20px 0 35px 92px;
+}
+
+
+/*-------------------------巅峰榜-----------------------------------------*/
+
+.rignt_muscicname {
+    color: #F9A13B;
+    font-weight: bolder;
+    width: 100px;
+    font-size: 12px;
+    line-height: 30px;
+    margin-right: 30px;
+}
+
+span.rignt_muscicname:hover {
+    color: #FAB769;
+}
+
+#right_sort h3,
+#right_singer h3,
+#right_activity h3 {
+    margin: 20px 0;
+}
+
+
+/*------------------------------------------------------------------------*/
+
+.right_list span {
+    /*榜单*/
+    display: inline-block;
+    width: 80px;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.right_list span:hover {
+    color: #F9A13B;
+}
+
+#right_singer ul,
+#right_activity ul {
+    list-style-type: none;
+}
+
+#right_singer ul>li,
+#right_activity ul>li {
+    height: 100px;
+    width: 68px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 30px;
+}
+
+#right_singer span {
+    display: inline-block;
+    width: 68px;
+    text-overflow: ellipsis;
+    /*文字隐藏后添加省略号*/
+    white-space: nowrap;
+    /*强制不换行*/
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 30px;
+    color: #F9A13B;
+    font-weight: bolder;
+}
+
+
+/*---------------------right-----------------------------------------------*/
