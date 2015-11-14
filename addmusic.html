@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+	<title></title>
+	  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div style="width:500px;margin:20% auto">
+<!-- <form action="addmusic.php" method="POST"> -->
+<label for="musicname">曲目：</label><input type="text" name="musicname" id="musicname"/><br/>
+<label for="singername">歌手：</label><input type="text" name="singername" id="singername"/><br/>
+<label for="language">语言：</label><input type="radio" name="language" value="1">华语<input type="radio" name="language" value="2">韩语<input type="radio" name="language" value="3">欧美<br/>
+<input type="button" value="提交" />
+<!-- </form> -->
+
+</div>
+ <script type="text/javascript">
+  $("input[type=button]").click(function(){
+         var musicname=$("#musicname").val();
+         var singername=$("#singername").val();
+         var language=$("input:radio:checked").val();
+         // alert(musicname + " " + singername + " " + language); 
+          $.ajax({
+                 
+                 type:"post",
+                 url:"addmusic.php",
+                 data:{
+                 	musicname:musicname,
+                 	singername:singername,
+                 	type:language
+                 },
+               dataType:"json",
+                 success:function(msg){
+                 	console.log(msg);
+                  },
+                 error:function(){
+               console.log("error");
+                 }
+
+          });
+  
+
+  }) 
+
+
+
+ </script>
+</body>
+
+</html>

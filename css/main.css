@@ -351,7 +351,8 @@ i.playicon {
     padding-right: 16px;
     font-size: 13px;
     border-right: 2px solid #ccc;
-    cursor: pointer
+    cursor: pointer;
+    color: #979696;
 }
 
 #left_recommend li {

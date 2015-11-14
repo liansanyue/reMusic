@@ -14,13 +14,7 @@ $(".img").each(function(index) {
     });
 });
 
-$("#left_recommend .mname").each(function(index) {
-    var snamelength = $(this).text().length;
-    if (snamelength > 12) {
-        var newsname = $(this).text().substr(0, snamelength) + '...';
-        $(this).text(newsname);
-    }
-});
+textsplit($("#left_recommend .mname"));
 
 /*图片轮播效果----------------------------------------------------------------------*/
 var liveflag = 1,
@@ -113,4 +107,68 @@ function show(num) {
             });
         }
     })
+}
+/*-----------切换不同语言音乐-----------------*/
+$(function() {
+    recommend(1);
+})
+
+function recommend(type) {
+    $.ajax({
+        type: "post",
+        url: "./get.php",
+        data: {
+            type: type
+        },
+        dataType: "json",
+        success: function(msg) {
+            $(".language:eq(" + (type - 1) + ")").css({
+                "color": "black"
+            });
+            $(".language:not(.language:eq(" + (type - 1) + "))").css({
+                "color": "#979696"
+            });
+            for (var i = 0; i < msg.length; i++) {
+                var arr = msg[i];
+                $("#recommend_left .mname:eq(" + i + ")").text(arr["musicname"]);
+                $("#recommend_left .msinger:eq(" + i + ")").html("&nbsp;&nbsp;-&nbsp;&nbsp;"+arr["singername"]);
+
+            };
+            textsplit($("#recommend_left .mname"));
+        },
+        error: function() {
+            alert("error");
+        }
+
+    });
+
+}
+$(".language").each(function(index) {
+    if (index == 0) {
+        $(this).click(function() {
+            recommend(1);
+        })
+    } else if (index == 1) {
+        $(this).click(function() {
+            recommend(2);
+        })
+    } else {
+        $(this).click(function() {
+            recommend(3);
+        })
+    }
+
+
+
+})
+/*文字超出切割*/
+function textsplit($textset){
+    $textset.each(function(index) {
+                var snamelength = $(this).text().length;
+                console.log(snamelength)
+                if (snamelength > 7 ) {
+                    var newsname = $(this).text().substr(0, 15) + '...';
+                    $(this).text(newsname);
+                }
+            });
 }
