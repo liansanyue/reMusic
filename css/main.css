@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family: Arial, Tahoma, "hiragino sans gb", Helvetica;
+    font-family:Arial,Tahoma,"hiragino sans gb",Helvetica;
 }
 
 ul {
@@ -348,8 +348,8 @@ i.playicon {
 
 #left_recommend span.language {
     margin-left: 5px;
-    padding-right: 5px;
-    font-size: 12px;
+    padding-right: 16px;
+    font-size: 13px;
     border-right: 2px solid #ccc;
     cursor: pointer
 }
