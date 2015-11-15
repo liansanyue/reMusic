@@ -110,31 +110,23 @@ function show(num) {
 }
 /*-----------切换不同语言音乐-----------------*/
 $(function() {
-    recommend(1);
+    recommend("date",1,14,recommendleft);
+    recommend("count",null,14,recommendright);
 })
 
-function recommend(type) {
+function recommend(order,type,num,fun) {
     $.ajax({
         type: "post",
         url: "./get.php",
         data: {
-            type: type
+            type: type,
+            order: order,
+            num:num
         },
         dataType: "json",
         success: function(msg) {
-            $(".language:eq(" + (type - 1) + ")").css({
-                "color": "black"
-            });
-            $(".language:not(.language:eq(" + (type - 1) + "))").css({
-                "color": "#979696"
-            });
-            for (var i = 0; i < msg.length; i++) {
-                var arr = msg[i];
-                $("#recommend_left .mname:eq(" + i + ")").text(arr["musicname"]);
-                $("#recommend_left .msinger:eq(" + i + ")").html("&nbsp;&nbsp;-&nbsp;&nbsp;"+arr["singername"]);
-
-            };
-            textsplit($("#recommend_left .mname"));
+            fun(type,msg);
+          
         },
         error: function() {
             alert("error");
@@ -146,21 +138,53 @@ function recommend(type) {
 $(".language").each(function(index) {
     if (index == 0) {
         $(this).click(function() {
-            recommend(1);
+             recommend("date",1,14,recommendleft);
         })
     } else if (index == 1) {
         $(this).click(function() {
-            recommend(2);
+             recommend("date",2,14,recommendleft);
         })
     } else {
         $(this).click(function() {
-            recommend(3);
+             recommend("date",3,14,recommendleft);
         })
     }
 
-
-
 })
+
+function recommendleft(type,msg){
+
+     $(".language:eq(" + (type - 1) + ")").css({
+                "color": "black"
+            });
+            $(".language:not(.language:eq(" + (type - 1) + "))").css({
+                "color": "#979696"
+            });
+            for (var i = 0; i < msg.length; i++) {
+                var arr = msg[i];
+                $("#recommend_left .mname:eq(" + i + ")").text(arr["musicname"]);
+                $("#recommend_left .msinger:eq(" + i + ")").html("&nbsp;&nbsp;-&nbsp;&nbsp;"+arr["singername"]);
+                  $("#recommend_left .mname:eq(" + i + ")").attr("title",arr["musicname"]);
+                $("#recommend_left .msinger:eq(" + i + ")").attr("title",arr["singername"]);
+
+            };
+            textsplit($("#recommend_left .mname")); 
+
+}
+function recommendright(type,msg){
+
+    
+            for (var i = 0; i < msg.length; i++) {
+                var arr = msg[i];
+                $("#recommend_right .mname:eq(" + i + ")").text(arr["musicname"]);
+                $("#recommend_right .msinger:eq(" + i + ")").html("&nbsp;&nbsp;-&nbsp;&nbsp;"+arr["singername"]);
+                 $("#recommend_right .mname:eq(" + i + ")").attr("title",arr["musicname"]);
+                $("#recommend_right .msinger:eq(" + i + ")").attr("title",arr["singername"]);
+
+            };
+            textsplit($("#recommend_right .mname")); 
+
+}
 /*文字超出切割*/
 function textsplit($textset){
     $textset.each(function(index) {

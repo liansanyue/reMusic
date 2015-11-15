@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>music</title>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.7.0/jquery.min.js"></script>
+</head>
+<body>
+<a href="javascript:void(0)" id="huayu">华语</a>
+<a href="javascript:void(0)" id="hanyu">韩语</a>
+<a href="javascript:void(0)" id="yingyu">英语</a>
+<div id="show"></div>
+<script type="text/javascript">
+    $("#huayu").click(function() {
+        $.ajax({
+            type: "post",
+            url: "get.php",
+            data:{
+                type: 1
+            },
+            dataType:"json",
+            success: function(msg) {
+                $("#show").html('');
+               for (var i = 0; i < msg.length; i++) {
+                    var arr = msg[i];
+                    $("#show").append("歌名：" + arr["musicname"] + "歌手：" + arr['singername'] + "<br/>");
+               };
+
+            },
+            error: function() {
+                alert("error");
+            }
+        });
+    });
+    $("#hanyu").click(function() {
+        $.ajax({
+            type: "post",
+            url: "get.php",
+            data:{
+                type: 2
+            },
+            dataType:"json",
+            success: function(msg) {
+                $("#show").html('');
+                for (var i = 0; i < msg.length; i++) {
+                    var arr = msg[i];
+                    $("#show").append("歌名：" + arr["musicname"] + "歌手：" + arr['singername'] + "<br/>");
+               };
+            },
+            error: function() {
+                alert("error");
+            }
+        });
+    });
+    $("#yingyu").click(function() {
+        $.ajax({
+            type: "post",
+            url: "get.php",
+            data:{
+                type: 3
+            },
+            dataType:"json",
+            success: function(msg) {
+                $("#show").html('');
+                for (var i = 0; i < msg.length; i++) {
+                    var arr = msg[i];
+                    $("#show").append("歌名：" + arr["musicname"] + "歌手：" + arr['singername'] + "<br/>");
+               };
+            },
+            error: function() {
+                alert("error");
+            }
+        });
+    });
+</script>
+</body>
+</html>
