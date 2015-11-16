@@ -304,31 +304,12 @@ cursor: pointer;
     position: relative;
 }
 
-#left_music img {
-    margin: 10px 10px 10px -2px;
-    width: 128px;
-    height: 128px;
-}
-
-#left_mv img {
+#left_music img ,#left_mv img {
     margin: 10px 10px 10px -2px;
     width: 160px;
     height: 90px;
 }
 
-#left_music span,
-#left_mv span {
-    display: inline-block;
-    height: 50px;
-    overflow: hidden;
-    background-color: rgba(161, 161, 161, 0.5);
-    z-index: 100;
-    line-height: 25px;
-    color: #eee;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-}
 
 #left_mv h2,
 #left_music h2,
@@ -338,20 +319,12 @@ cursor: pointer;
     margin-bottom: 10px;
 }
 
-#left_music span {
-    width: 128px;
-    margin: 10px 10px 10px -138px
-}
-
-#left_mv span {
-    width: 160px;
-    margin: 10px 10px 10px -170px;
-}
-
 #left_mv li,
 #left_music li {
     float: left;
+      position: relative;
 }
+
 
 .ellipsis {
     display: inline-block;
@@ -364,18 +337,13 @@ cursor: pointer;
 
 i.playicon {
     position: absolute;
-    top: -80px;
+    top: 70px;
     left: 10px;
-    display: none;
+    /*display: none;*/
+    color: #eee;
 }
 
-
-/*---------------在线首发和mv首播结束---------------------------------*/
-
-
-/*----------------推荐-------------------------------------------------*/
-
-#left_recommend span.language {
+ span.language {
     margin-left: 5px;
     padding-right: 16px;
     font-size: 13px;
@@ -383,33 +351,14 @@ i.playicon {
     cursor: pointer;
     color: #979696;
 }
-
-#left_recommend li {
-    line-height: 25px;
+span.language:last-child{
+    border-right: 0
 }
-
-#recommend_left {
-    border-right: 1px dotted #ccc;
+.sname{
+    width: 155px;
 }
+/*---------------在线首发和mv首播结束---------------------------------*/
 
-.mname {
-    font-size: 14px;
-    color: #F9A13B;
-    font-weight: 600;
-}
-
-.msinger {
-    font-size: 14px;
-}
-
-a.mname:hover {
-    color: #fab769;
-    ;
-}
-
-a.msinger:hover {
-    color: #565555;
-}
 
 
 /*-------------------推荐结束--------------------------------------------*/
@@ -458,10 +407,23 @@ span.rignt_muscicname:hover {
 
 #right_sort h3,
 #right_singer h3,
-#right_activity h3 {
+#right_activity h3,
+#keyword h3 {
     margin: 20px 0;
+    color:#8B8B8B;
 }
+#keyword ul{
+    height:90px;
 
+}
+#keyword ul li{
+display: inline-block;
+font-size: 14px;
+width: 80px;
+height: 30px;
+line-height: 30px;
+cursor: pointer;
+}
 
 /*------------------------------------------------------------------------*/
 

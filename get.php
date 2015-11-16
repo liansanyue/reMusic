@@ -1,19 +1,26 @@
 
 <?php
 error_reporting(0);
+
 $link = mysql_connect("localhost", 'root', '');
 mysql_select_db("test") or die("error select db");
 $type = $_POST['type'];
 $order = $_POST['order'];
 $num = $_POST['num'];
-
+$img = $_POST['img'];
+if($img=="false"){
+	$table="music";
+}
+else{
+	$table="mv";
+}
 if(is_string($order)&&is_numeric($num))
 {    if(!is_numeric($type))
 	  {$whe = "";}
 	  else{
 	  	$whe="where type =".$type;
 	  }
-	$sql = "SELECT * FROM music {$whe} ORDER BY {$order} desc limit {$num}";
+	$sql = "SELECT * FROM {$table} {$whe} ORDER BY {$order} desc limit {$num}";
 }
 else{
 	die("die");

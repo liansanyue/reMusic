@@ -11,6 +11,8 @@
 <label for="musicname">曲目：</label><input type="text" name="musicname" id="musicname"/><br/>
 <label for="singername">歌手：</label><input type="text" name="singername" id="singername"/><br/>
 <label for="language">语言：</label><input type="radio" name="language" value="1">华语<input type="radio" name="language" value="2">韩语<input type="radio" name="language" value="3">欧美<br/>
+<label for="publish">发行时间：</label><input type="text" name="publish" id="publish"><br/>
+<label for="count">热度：</label><input type="text" name="count" id="count"><br/>
 <input type="button" value="提交" />
 <!-- </form> -->
 
@@ -20,6 +22,8 @@
          var musicname=$("#musicname").val();
          var singername=$("#singername").val();
          var language=$("input:radio:checked").val();
+          var publish=$("#publish").val();
+           var count=$("#count").val();
          // alert(musicname + " " + singername + " " + language); 
           $.ajax({
                  
@@ -28,7 +32,9 @@
                  data:{
                  	musicname:musicname,
                  	singername:singername,
-                 	type:language
+                 	type:language,
+                 	publish:publish,
+                 	count:count
                  },
                dataType:"json",
                  success:function(msg){

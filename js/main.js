@@ -110,18 +110,42 @@ function show(num) {
 }
 /*-----------切换不同语言音乐-----------------*/
 $(function() {
-    recommend("date",1,14,recommendleft);
-    recommend("count",null,14,recommendright);
+    recommend("publish",1,14,false,recommendleft);
+    recommend("count",null,14,false,recommendright);
+     
 })
+ function mvfunction(type,msg){
+    $(".language:eq(" + (type - 1) + ")").css({
+                "color": "black"
+            });
+            $(".language:not(.language:eq(" + (type - 1) + "))").css({
+                "color": "#979696"
+            });
+            for (var i = 0; i < msg.length; i++) {
+                var arr = msg[i];
+                console.log(arr)
+                $("#left_mv .sname:eq(" + i + ")").html(arr["mvname"]+"&nbsp;&nbsp;-&nbsp;&nbsp;"+arr["mvsinger"]);
+                
+                  $("#left_mv .sname:eq(" + i + ")").attr("title",arr["mvname"]+"-"+arr["mvsinger"]);
+                $("#left_mv .fa-play:eq(" + i + ")").html(arr["count"]);
+                $("#left_mv .mvpublish:eq(" + i + ")").html(arr["publish"]);
+                $("#left_mv img:eq(" + i + ")").attr("src","img/"+arr["imgurl"]);
 
-function recommend(order,type,num,fun) {
+
+            };
+           
+  
+
+ }
+function recommend(order,type,num,img,fun) {
     $.ajax({
         type: "post",
         url: "./get.php",
         data: {
             type: type,
             order: order,
-            num:num
+            num:num,
+            img:img
         },
         dataType: "json",
         success: function(msg) {
@@ -135,22 +159,29 @@ function recommend(order,type,num,fun) {
     });
 
 }
-$(".language").each(function(index) {
+$("#recommend_left .language").each(function(index) {
     if (index == 0) {
         $(this).click(function() {
-             recommend("date",1,14,recommendleft);
+             recommend("publish",1,14,false,recommendleft);
         })
     } else if (index == 1) {
         $(this).click(function() {
-             recommend("date",2,14,recommendleft);
+             recommend("publish",2,14,false,recommendleft);
         })
     } else {
         $(this).click(function() {
-             recommend("date",3,14,recommendleft);
+             recommend("publish",3,14,false,recommendleft);
         })
     }
 
 })
+$("#left_mv .language").each(function(index) {
+   switch(index){
+    case 0:
+    
+   }
+
+   })
 
 function recommendleft(type,msg){
 
@@ -189,7 +220,7 @@ function recommendright(type,msg){
 function textsplit($textset){
     $textset.each(function(index) {
                 var snamelength = $(this).text().length;
-                console.log(snamelength)
+               
                 if (snamelength > 7 ) {
                     var newsname = $(this).text().substr(0, 15) + '...';
                     $(this).text(newsname);

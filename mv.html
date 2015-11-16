@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>reMusic</title>
+    <!-- <link href="css/main.css" rel="stylesheet" type="text/css" /> -->
+    <link href="css/mv.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="header_top">
+            <ul>
+                <li><span>您还未登录，</span><a href="#">马上登录</a></li>
+                <!--可以添加项-->
+            </ul>
+        </div>
+        <div id="header_nav">
+            <div id="search">
+                <input type="text" placeholder="Search" />
+                <button><i class="fa fa-search"></i></button>
+            </div>
+            <img id="logo" src="img/logo.jpg" />
+            <ul>
+                <a href="index.html">
+                    <li onmouseover="show(0)">音乐馆</li>
+                </a>
+                <li style="background-color: #FFC058;color:#fff;border-top: 6px solid #FFC058;" onmouseover="show(1)">MV</li>
+                <li onmouseover="show(2)">我的收藏</li>
+                <li onmouseover="show(3)">我的下载</li>
+            </ul>
+            <div class="nav_list" style="display:none">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">歌单广场</a></li>
+                    <li><a href="#">电台</a></li>
+                    <li><a href="#">歌手</a></li>
+                    <li><a href="#">独家首发</a></li>
+                    <li><a href="#">专辑</a></li>
+                </ul>
+            </div>
+            <div class="nav_list" style="position:absolute; left:348px;">
+                <ul>
+                    <li style="color:#F39F13;font-weight:600">MV推荐</li>
+                    <li><a href="#">MV排行榜</a></li>
+                    <li><a href="#">MV库音乐广场</a></li>
+                    <li><a href="#">音乐广场</a></li>
+                    <li><a href="#">MV专题</a></li>
+                    <li><a href="#">巅峰榜盛曲</a></li>
+                </ul>
+            </div>
+            <div class="nav_list" style="display:none">
+                <ul>
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">歌单</a></li>
+                    <li><a href="#">MV收藏</a></li>
+                    <li><a href="#">听众</a></li>
+                    <li><a href="#">收听</a></li>
+                </ul>
+            </div>
+            <div class="nav_list" style="display:none">
+                <ul>
+                    <li><a href="#">音乐</a></li>
+                    <li><a href="#">MV</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="con">
+        <div id="left">
+            <div id="left_imgplay">
+                <a href="javascript:" id="prev">&lt;</a>
+                <a href="javascript:" id="next">&gt;</a>
+                <img id="playimg" src="img/0.jpg" />
+                <div class="rangediv">
+                    <a href="javascript:" class="range " style="background-color:#eee" onclick="change(0)"></a>
+                    <a href="javascript:" class="range" onclick="change(1)"></a>
+                    <a href="javascript:" class="range" onclick="change(2)"></a>
+                    <a href="javascript:" class="range" onclick="change(3)"></a>
+                    <a href="javascript:" class="range" onclick="change(4)"></a>
+                    <a href="javascript:" class="range" onclick="change(5)"></a>
+                    <a href="javascript:" class="range" onclick="change(6)"></a>
+                    <a href="javascript:" class="range" onclick="change(7)"></a>
+                </div>
+            </div>
+            <div id="left_music">
+                <h2>MV首播<a href="#" style="font-size:14px;">/更多</a></h2>
+                <ul>
+                    <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play"></i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play">12121</i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play">12121</i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play">12121</i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                       <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play">12121</i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play">12121</i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play">12121</i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="img/mv1.jpg" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;">女はそれを我慢しない<br/><i class="fa fa-play">12121</i><span style="float:right">2015-11-11</span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                </ul>
+            </div>
+            <div id="left_mv">
+            <h2>MV热播  &nbsp;&nbsp;<span class="language" style="margin-left:10px;">内地</span><span class="language" style="">港台</span><span class="language" style="">韩语</span><span class="language" style="">韩语</span><span class="language" style=" ">日本</span></h2>
+                <!-- <h2>MV热播<a href="#"style="font-size:14px;">/更多</a></h2> -->
+                      <ul>
+                    <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                       <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                     <li>
+                        <a href="#" class="img"><img src="#" /></a>
+                        <p style="font-size:13px;color:#777;width:160px;"><span class="sname ellipsis"></span><br/><i class="fa fa-play"></i><span class="mvpublish" style="float:right"></span></p><i class=" fa fa-lg fa-play-circle-o courppt playicon" title="播放" style=""></i>
+                    </li>
+                </ul>
+            </div>
+           
+        </div>
+        <div id="right">
+            <div id="keyword">
+                <h3>MV索引</h3>
+                <h4>按地区</h4>
+                <ul>
+                    <li>内地</li>
+                    <li>港台</li>
+                    <li>韩国</li>
+                    <li>欧美</li>
+                    <li>日本</li>
+                    <li>其他</li>
+                </ul>
+
+                <h4>按时间</h4>
+                <ul>
+                    <li>2015</li>
+                    <li>2014</li>
+                    <li>2013</li>
+                    <li>2012</li>
+                    <li>2011</li>
+                    <li>00年年代MV</li>
+                    <li>其他</li>
+                </ul>
+
+            </div>
+            <div id="right_sort">
+                <h3>24小时热播榜 &nbsp;&nbsp;<i class=" fa  fa-lg fa-play-circle courppt" title="播放"></i> &nbsp;&nbsp;<i class=" fa  fa-lg fa-plus-circle courppt" title="添加到列表"></i> </h3>
+                <ol>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">来自天堂的魔鬼</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">G.E.M. 邓紫棋</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">Bad Girl</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">吴亦凡</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">盲点</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">G.E.M. 邓紫棋</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">壁咚 (未完成)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">孙子涵</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">他们说 (《龙门镖局为2归来》电视剧主题曲)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">张靓颖</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">陪你长大 (《三个奶爸》电视剧片尾曲)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">田雷</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">青春快乐 (《从天儿降》电影主题曲)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">张艺兴</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">算你狠 (Live)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">陈小春</span></a>
+                        <br/>
+                    </li>
+                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">我们不懂</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">苏打绿</span></a>
+                        <br/>
+                    </li>
+                </ol>
+            </div>
+           
+            <div id="right_activity">
+                <h3>精彩活动</h3>
+                <ul>
+                    <li style="width:228px;">
+                        <a href="#" class="mname"><img src="img/hd1.jpg" /><span style="width:228px;">精彩活动] 苏打绿Mini专辑</span></a>
+                    </li>
+                    <li style="width:228px;">
+                        <a href="#" class="mname"> <img src="img/hd2.jpg" /><span style="width:228px;">精彩活动] 苏打绿Mini专辑</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+<script src="js/main.js"></script>
+<script src="js/mv.js"></script>
+
+</html>
