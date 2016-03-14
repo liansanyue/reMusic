@@ -114,29 +114,7 @@ $(function() {
     recommend("count",null,14,false,recommendright);
      
 })
- function mvfunction(type,msg){
-    $(".language:eq(" + (type - 1) + ")").css({
-                "color": "black"
-            });
-            $(".language:not(.language:eq(" + (type - 1) + "))").css({
-                "color": "#979696"
-            });
-            for (var i = 0; i < msg.length; i++) {
-                var arr = msg[i];
-                console.log(arr)
-                $("#left_mv .sname:eq(" + i + ")").html(arr["mvname"]+"&nbsp;&nbsp;-&nbsp;&nbsp;"+arr["mvsinger"]);
-                
-                  $("#left_mv .sname:eq(" + i + ")").attr("title",arr["mvname"]+"-"+arr["mvsinger"]);
-                $("#left_mv .fa-play:eq(" + i + ")").html(arr["count"]);
-                $("#left_mv .mvpublish:eq(" + i + ")").html(arr["publish"]);
-                $("#left_mv img:eq(" + i + ")").attr("src","img/"+arr["imgurl"]);
-
-
-            };
-           
-  
-
- }
+ 
 function recommend(order,type,num,img,fun) {
     $.ajax({
         type: "post",
@@ -175,13 +153,6 @@ $("#recommend_left .language").each(function(index) {
     }
 
 })
-$("#left_mv .language").each(function(index) {
-   switch(index){
-    case 0:
-    
-   }
-
-   })
 
 function recommendleft(type,msg){
 
