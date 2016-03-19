@@ -290,7 +290,7 @@ cursor: pointer;
     position: absolute;
     top: 245px;
     left: 255px;
-    vertical-align:
+    /*vertical-align:*/
 }
 
 
@@ -506,5 +506,38 @@ span.rignt_muscicname:hover {
     font-weight: bolder;
 }
 
-
 /*---------------------right-----------------------------------------------*/
+#logout{
+    display:none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#logout:hover{
+    color:#ccc;
+}
+#playlist{
+    position: fixed;
+    bottom: 30px;
+    width: 350px;
+    height:100px;
+    background-color: rgba(1, 3, 3, 0.76);
+    border-radius: 5px;
+
+}
+.sider{
+    /*display: inline-block;*/
+    width: 10px;
+    height:100px;
+    background-color: #000000;
+    float: right;
+    border-radius: 5px;
+}
+#playlist img{
+    width: 90px;
+    height:50px;
+    margin: 10px;
+}
+audio{
+    width: 200px;
+
+}

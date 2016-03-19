@@ -1,305 +1,178 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <title>reMusic</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet">
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+<link href="icon/logo.ico" rel="icon" type="image/x-icon"/>
 
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body,
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    #playlist {
+        position: fixed;
+        bottom: 30px;
+
+        z-index: 100;
+        /*display: none;*/
+        background-color: rgba(1, 3, 3, 0.76);
+        border-radius: 0 5px 5px 0;
+
+    }
+
+    #play {
+        width: 470px;
+        height: 120px;
+        float: left;
+        display: none;
+    }
+
+    .sider {
+       /* display: inline-block; */
+        width: 15px;
+        height: 120px;
+        float: right;
+        /* background-color: red; */
+        background-color: rgba(1, 3, 3, 0.76);
+        border-radius: 0 5px 5px 0;
+    }
+
+    #playlist img {
+        width: 90px;
+        height: 50px;
+        margin: 10px;
+        float: left;
+    }
+
+    audio {
+        width: 100%;
+        height: 30px;
+
+    }
+
+    .fa-forward, .fa-backward,.fa-list, .fa-download {
+        color: #cccccc;
+        font-size: medium;
+        cursor: pointer;
+
+    }
+
+    .lyrics {
+
+        display: inline-block;
+        width: 260px;
+        height: 86px;
+        overflow: hidden;
+        font-size: small;
+        line-height: 25px;
+        color: #fff;
+        text-align: center;
+    }
+
+    #list {
+
+        /*width: 235px;*/
+        width: 470px;
+        height: 400px;
+        position: absolute;
+        bottom: 120px;
+        background-color: rgba(1, 3, 3, 0.76);
+        border-radius: 5px 5px 0 0;
+        color: #ccc;
+        line-height: 30px;
+        font-size: 15px;
+        overflow: auto;
+    }
+
+    /*.scroll{*/
+    /*width:20px;*/
+    /*height: 100px;*/
+    /*background-color: rgba(1, 3, 3, 0.76);*/
+    /*position: absolute;*/
+    /*z-index: 200;*/
+    /*}*/
+
+</style>
+
+</head>
 <body>
-    <div id="header">
-        <div id="header_top">
-            <ul>
-                <li><span>您还未登录，</span><a href="#">马上登录</a></li>
-                <!--可以添加项-->
-            </ul>
-        </div>
-        <div id="header_nav">
-        <div id="search">
-            <input type="text" placeholder="Search"/><button><i class="fa fa-search"></i></button>
-            </div>`
-            <img id="logo" src="img/logo.jpg" />
-            <ul>
-                <li style="background-color: #FFC058;color:#fff;border-top: 6px solid #FFC058;" onmouseover="show(0)">音乐馆</li>
-                <a href="mv.html"><li onmouseover="show(1)">MV</li></a>
-                <li onmouseover="show(2)">我的收藏</li>
-                <li onmouseover="show(3)">我的下载</li>
-            </ul>
-            <div class="nav_list">
-                <ul>
-                <li ><a style="color:#F39F13;font-weight:600" href="#">首页</a></li>
-                    <li><a href="#">排行榜</a></li>
-                    <li><a href="#">歌单广场</a></li>
-                    <li><a href="#">电台</a></li>
-                    <li><a href="#">歌手</a></li>
-                    <li><a href="#">独家首发</a></li>
-                    <li><a href="#">专辑</a></li>
-                </ul>
-            </div>
-            <div class="nav_list" style="display:none">
-                <ul>
-                    <li><a href="#">MV推荐</a></li>
-                    <li><a href="#">MV排行榜</a></li>
-                    <li><a href="#">MV库音乐广场</a></li>
-                    <li><a href="#">音乐广场</a></li>
-                    <li><a href="#">MV专题</a></li>
-                    <li><a href="#">巅峰榜盛曲</a></li>
-                </ul>
-            </div>
-            <div class="nav_list" style="display:none">
-                <ul>
-                    <li><a href="#">主页</a></li>
-                    <li><a href="#">歌单</a></li>
-                    <li><a href="#">MV收藏</a></li>
-                    <li><a href="#">听众</a></li>
-                    <li><a href="#">收听</a></li>
-                </ul>
-            </div>
-            <div class="nav_list" style="display:none">
-                <ul>
-                    <li><a href="#">音乐</a></li>
-                    <li><a href="#">MV</a></li>
-                </ul>
-            </div>
-        </div>
+<iframe src="music.html" name="af"></iframe>
+<div id="playlist">
+    <div id="list" style="display: none">
     </div>
-    <div id="con">
-        <div id="left">
-            <div id="left_imgplay">
-                <a href="javascript:" id="prev">&lt;</a>
-                <a href="javascript:" id="next">&gt;</a>
-                <img id="playimg" src="img/0.jpg" />
-                <div class="rangediv">
-                    <a href="javascript:" class="range " style="background-color:#eee" onclick="change(0)"></a>
-                    <a href="javascript:" class="range" onclick="change(1)"></a>
-                    <a href="javascript:" class="range" onclick="change(2)"></a>
-                    <a href="javascript:" class="range" onclick="change(3)"></a>
-                    <a href="javascript:" class="range" onclick="change(4)"></a>
-                    <a href="javascript:" class="range" onclick="change(5)"></a>
-                    <a href="javascript:" class="range" onclick="change(6)"></a>
-                    <a href="javascript:" class="range" onclick="change(7)"></a>
-                </div>
-            </div>
-            <div id="left_music">
-                <h2>在线首发<a href="#" style="font-size:14px;">/更多</a></h2>
-                <ul>
-                    <li>
-                        <a href="#" class="img"><img src="img/m1.jpg" /><span>第二季QQ音乐巅峰对决 第3期<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m2.jpg" /><span>冬 未了<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m3.jpg" /><span>隐藏的歌手 第4期<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m4.jpg" /><span>新的心跳<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m5.jpg" /><span>再见少年<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m6.jpg" /><span>Ⅲ级跳之Hop<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m7.jpg" /><span>In the Lonely Hour (Drownin<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m8.jpg" /><span>Get Weird (Deluxe)<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m9.jpg" /><span>这一切还是迷人的<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/m10.jpg" /><span>失语者<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div id="left_mv">
-                <h2>MV首播<a href="#"style="font-size:14px;">/更多</a></h2>
-                <ul>
-                    <!-- 另一种方式 -->
-                    <!-- <li><a href="#" class="img"><img src="img/mv1.jpg" /></a><p style="font-size:13px;color:#777">女はそれを我慢しない</p></li> -->
-                    <!--  -->
-                    <li>
-                        <a href="#" class="img"><img src="img/mv1.jpg" /><span>第水曜日のカンパネラ (Suiyobi no Campanella)<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/mv2.jpg" /><span>사슬 (Chained Up) - VIXX<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/mv3.jpg" /><span>一个人的歌 - 魏语诺<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/mv4.jpg" /><span>WOW - 饶威<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/mv5.jpg" /><span>Skip - 타히티<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/mv6.jpg" /><span>손들어 - 워너비<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/mv7.jpg" /><span>廿九岁的遗书<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                    <li>
-                        <a href="#" class="img"><img src="img/mv8.jpg" /><span>추억인 듯 상처인 듯<i class=" fa fa-2x fa-play-circle-o courppt playicon" title="播放" style=""></i></span></a>
-                        <p></p>
-                    </li>
-                </ul>
-            </div>
-            <div id="left_recommend">
-                <div id="recommend_left">
-                    <h2>最新推荐  &nbsp;&nbsp;<i class=" fa fa-play-circle courppt" title="播放"></i> &nbsp;&nbsp;<i class=" fa fa-plus-circle courppt" title="添加到列表"></i><span class="language" style="margin-left:10px;">华语</span><span class="language" style="">韩语</span><span class="language" style=" ">欧美</span></h2>
-                    <ul>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a> </li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a> </li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    	<li><a href="#" title="" name="" class="ellipsis mname"></a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    </ul>
-                </div>
-                <div id="recommend_right">
-                    <h2>最热推荐 &nbsp;&nbsp;<i class=" fa fa-play-circle courppt" title="播放"></i> &nbsp;&nbsp;<i class=" fa fa-plus-circle courppt" title="添加到列表"></i></h2>
-                    <ul>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a> </li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a> </li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                        <li><a href="#" title="" name="" class="ellipsis mname"> </a><a href="#" title="" name="" class="ellipsis msinger"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div id="right">
-            <div id="right_login">
-                <p>发现更多好音乐</p>
-                <button>用户登录</button>
-            </div>
-            <div id="right_sort">
-                <h3>巅峰榜 &nbsp;&nbsp;<i class=" fa  fa-lg fa-play-circle courppt" title="播放"></i> &nbsp;&nbsp;<i class=" fa  fa-lg fa-plus-circle courppt" title="添加到列表"></i> </h3>
-                <ol>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">来自天堂的魔鬼</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">G.E.M. 邓紫棋</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">Bad Girl</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">吴亦凡</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">盲点</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">G.E.M. 邓紫棋</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">壁咚 (未完成)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">孙子涵</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">他们说 (《龙门镖局为2归来》电视剧主题曲)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">张靓颖</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">陪你长大 (《三个奶爸》电视剧片尾曲)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">田雷</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">青春快乐 (《从天儿降》电影主题曲)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">张艺兴</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">算你狠 (Live)</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">陈小春</span></a>
-                        <br/>
-                    </li>
-                    <li><a href="#"><span class="ellipsis rignt_muscicname" title="" name="">我们不懂</span></a><a href="#"><span class="ellipsis musicsinger" title="" name="">苏打绿</span></a>
-                        <br/>
-                    </li>
-                </ol>
-            </div>
-            <div class="right_list">
-                <a href="#"><span> iTunes榜</span> </a>
-                <a href="#"><span> 美国公告牌</span></a>
-                <a href="#"><span> 英国UK榜</span></a>
-                <a href="#"><span> Channel[V]</span></a>
-                <a href="#"><span> 日本公信榜</span></a>
-                <a href="#"><span> 韩国MNET</span></a>
-                <a href="#"><span> 英国UK榜</span></a>
-                <a href="#"><span> 香港电台榜</span></a>
-                <a href="#"><span>MTV光荣</span></a>
-            </div>
-            <div id="right_singer">
-                <h3>热门歌手</h3>
-                <ul>
-                    <li>
-                        <a href="#"><img src="img/s1.jpg" /><span>G.E.M. 邓紫棋</span></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="img/s2.jpg" /><span>周杰伦</span></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="img/s3.jpg" /><span>BIGBANG </span></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="img/s4.jpg" /><span>陈奕迅</span></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="img/s5.jpg" /><span>林俊杰</span></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="img/s6.jpg" /><span>鹿晗</span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="right_list">
-                <a href="#"><span class="bang"> 华语男歌手</span></a>
-                <a href="#"><span class="bang"> 华语女歌手</span></a>
-                <a href="#"><span class="bang"> 华语组合日</span></a>
-                <a href="#"><span class="bang"> 韩男歌手</span></a>
-                <a href="#"><span class="bang"> 日韩女歌手</span></a>
-                <a href="#"><span class="bang"> 日韩组合</span></a>
-                <a href="#"><span class="bang">  欧美男歌手</span></a>
-                <a href="#"><span class="bang">  欧美女歌手</span></a>
-                <a href="#"><span class="bang"> 欧美组合</span></a>
-            </div>
-            <div id="right_activity">
-                <h3>精彩活动</h3>
-                <ul>
-                    <li style="width:228px;">
-                        <a href="#" class="mname"><img src="img/hd1.jpg" /><span style="width:228px;">精彩活动] 苏打绿Mini专辑</span></a>
-                    </li>
-                    <li style="width:228px;">
-                        <a href="#" class="mname"> <img src="img/hd2.jpg" /><span style="width:228px;">精彩活动] 苏打绿Mini专辑</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div id="footer"></div>
-</body>
-<script src="js/main.js"></script>
+    <div class="scroll"></div>
+    <div id="play">
+        <img src="img/test.jpg"/>
+        <span class="fa fa-list" ></span>
+        <span class="fa fa-backward"></span>
+        <p class="lyrics">
+           <!--歌词占位-->
+        </p>
+        <span class="fa fa-forward"></span>
+        <span class="fa fa-download"></span>
+        <audio src="" controls preload="none">
 
+            <!--<track src="music/Shakira - Try Everything (《疯狂动物城》电影主题曲).lrc" kind="subtitles" srclang="no" label="English">
+      -->  </audio>
+    </div>
+    <span class="sider"> </span>
+    <!--用iframe试试，然后在判断location.hash-->
+</div>
+</body>
+<script>
+    //    location.hash="#ww"
+    //    alert(frames[0].location.href)
+
+    router(location.hash)
+    function router(url) {
+        switch (url) {
+            case "#music":
+                frames[0].location.href = "music.html";
+                break;
+            case "#mv":
+                frames[0].location.href = "mv.html";
+                break;
+            case "#login":
+                frames[0].location.href = "login.html";
+                break;
+        }
+    }
+    document.querySelector(".sider").onclick = function (e) {
+
+        var elem = document.querySelector("#play");
+        elem.style.display = elem.style.display == "none" ? "block" : "none";
+    }
+    document.querySelector("audio").addEventListener("ended", function () {
+                //           播放结束；
+            }
+    );
+    document.querySelector(".fa-list").addEventListener("click", function (e) {
+        var list=document.querySelector("#list");
+       list.style.display=list.style.display=="block"? "none":"block";
+
+            }
+    );
+    document.querySelector("audio").addEventListener("ended", function () {
+                //           播放结束；
+            }
+    );
+
+</script>
 </html>

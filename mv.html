@@ -7,17 +7,39 @@
     <!-- <link href="css/main.css" rel="stylesheet" type="text/css" /> -->
     <link href="css/mv.css" rel="stylesheet" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet">
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
 </head>
 
 <body>
     <div id="header">
         <div id="header_top">
             <ul>
-                <li><span>您还未登录，</span><a href="#">马上登录</a></li>
+                <li><span>您还未登录，</span><a  href="login.html">马上登录</a></li>
                 <!--可以添加项-->
-            </ul>
+
+                <li id="logout">注销</li>
+           </ul>
+
         </div>
+        <script>
+            if(sessionStorage.length){
+                var key=sessionStorage.key(0);
+                if(sessionStorage[key]){
+                    $("#header_top span").html("欢迎！");
+                    $("#header_top a").html(sessionStorage[key]);
+                    $("#header_top a").attr("href","#");
+                    $("#logout").show();
+
+                }
+                else
+                {
+                    alert("error");
+                }
+            }
+            else{
+
+            }
+        </script>
         <div id="header_nav">
             <div id="search">
                 <input type="text" placeholder="Search" />
@@ -25,16 +47,16 @@
             </div>
             <img id="logo" src="img/logo.jpg" />
             <ul>
-                <a href="index.html">
-                    <li onmouseover="show(0)">音乐馆</li>
-                </a>
+
+                    <li onmouseover="show(0)"><a href="music.html">音乐馆 </a></li>
+
                 <li style="background-color: #FFC058;color:#fff;border-top: 6px solid #FFC058;" onmouseover="show(1)">MV</li>
                 <li onmouseover="show(2)">我的收藏</li>
                 <li onmouseover="show(3)">我的下载</li>
             </ul>
             <div class="nav_list" style="display:none">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
+                    <li><a href="music.html">首页</a></li>
                     <li><a href="#">排行榜</a></li>
                     <li><a href="#">歌单广场</a></li>
                     <li><a href="#">电台</a></li>
@@ -237,6 +259,7 @@
     </div>
     <div id="footer"></div>
 </body>
+
 <script src="js/main.js"></script>
 <script src="js/mv.js"></script>
 

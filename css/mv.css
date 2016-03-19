@@ -290,7 +290,7 @@ cursor: pointer;
     position: absolute;
     top: 245px;
     left: 255px;
-    vertical-align:
+    /*vertical-align:*/
 }
 
 
@@ -470,3 +470,11 @@ cursor: pointer;
 
 
 /*---------------------right-----------------------------------------------*/
+#logout{
+    display:none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#logout:hover{
+    color:#ccc;
+}

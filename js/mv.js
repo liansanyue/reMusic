@@ -50,3 +50,7 @@ function mvfunction(type,msg){
   
 
  }
+$("#logout").click(function(){
+    sessionStorage.clear();
+    location.reload();
+})

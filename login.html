@@ -47,6 +47,11 @@
         cursor: pointer;
     }
     </style>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+
+        sessionStorage.clear();
+    </script>
 </head>
 
 <body>
@@ -55,16 +60,16 @@
             <img id="logo" src="img/logo.jpg" />
         </div>
         <div id="right">
-            <form action="login.php" method="POST">
+                <form action="" method="post">
                 <h3>账号登录</h3>
                 <input type="text" placeholder="用户名" name="username">
                 <br/>
-                <input type="passworld" placeholder="密码" passworld="passworld">
+                <input type="password" placeholder="密码" name="password">
                 <br/>
                 <button type="submit">登录</button>
             </form>
         </div>
     </div>
 </body>
-
+<script src="js/login.js"></script>
 </html>
