@@ -9,25 +9,22 @@ $("button").click(function(e){
         data: {
             name:namevale ,
             password: passwordvalue
-
         },
         dataType: "text",
         success: function(isLogin) {
-
             if(isLogin==1){
                 sessionStorage.setItem("login",namevale);
-                location.href="music.html";
+                location.href="/music.html";
+
                 parent.document.location.hash="#music"
             }
             else{
                 alert("用户名或密码错误！")
             }
-
         },
         error: function() {
             alert("error");
         }
-
     });
 
 })

@@ -7,47 +7,58 @@
 </head>
 <body>
 <div style="width:500px;margin:20% auto">
-<!-- <form action="addmusic.php" method="POST"> -->
+ <form id="form" enctype="multipart/form-data" action="addmusic.php" method="POST">
 <label for="musicname">曲目：</label><input type="text" name="musicname" id="musicname"/><br/>
 <label for="singername">歌手：</label><input type="text" name="singername" id="singername"/><br/>
-<label for="language">语言：</label><input type="radio" name="language" value="1">华语<input type="radio" name="language" value="2">韩语<input type="radio" name="language" value="3">欧美<br/>
+<label  >语言：</label><input type="radio" name="language" value="1">华语<input type="radio" name="language" value="2">韩语<input type="radio" name="language" value="3">欧美<br/>
 <label for="publish">发行时间：</label><input type="text" name="publish" id="publish"><br/>
 <label for="count">热度：</label><input type="text" name="count" id="count"><br/>
-<input type="button" value="提交" />
-<!-- </form> -->
+    <label for="count"> 歌曲文件：</label> <input id="m"type="file" name="music"/><br/>
+    <label for="count"> 歌词文件：</label><input id="l" type="file" name="lrc"/><br/>
+     <label for="count"> 图片文件：</label><input id="im" type="file" name="img"/><br/>
+    <input type="submit" value="提交" />
+ </form>
 
 </div>
  <script type="text/javascript">
-  $("input[type=button]").click(function(){
-         var musicname=$("#musicname").val();
-         var singername=$("#singername").val();
-         var language=$("input:radio:checked").val();
-          var publish=$("#publish").val();
-           var count=$("#count").val();
-         // alert(musicname + " " + singername + " " + language); 
-          $.ajax({
-                 
-                 type:"post",
-                 url:"addmusic.php",
-                 data:{
-                 	musicname:musicname,
-                 	singername:singername,
-                 	type:language,
-                 	publish:publish,
-                 	count:count
-                 },
-               dataType:"json",
-                 success:function(msg){
-                 	console.log(msg);
-                  },
-                 error:function(){
-               console.log("error");
-                 }
-
-          });
-  
-
-  }) 
+////     console.log($('#m')[0].files)
+//  $("input[type=button]").click(function(){
+//         var musicname=$("#musicname").val();
+//         var singername=$("#singername").val();
+//         var language=$("input:radio:checked").val();
+//          var publish=$("#publish").val();
+//           var count=$("#count").val();
+//        var file=new FormData();
+//
+////      file.append('file', $('#m')[0].files[0]);
+////      file.append('file', $('#l')[0].files[0]);
+//          $.ajax({
+//
+//                 type:"post",
+//                 url:"addmusic.php",
+//                 data:{
+//                 	musicname:musicname,
+//                 	singername:singername,
+//                 	type:language,
+//                 	cpublish:publish,
+//                 	ccount:count
+////                     formData:file
+//                 },
+////              cache:false,
+//              contentType: false,
+//              processData: false,
+//               dataType:"json",
+//                 success:function(msg){
+//                 	console.log(msg);
+//                  },
+//                 error:function(){
+//               console.log("error");
+//                 }
+//
+//          });
+//
+//
+//  })
 
 
 

@@ -45,7 +45,7 @@
     }
 
     .sider {
-       /* display: inline-block; */
+        /* display: inline-block; */
         width: 15px;
         height: 120px;
         float: right;
@@ -67,7 +67,7 @@
 
     }
 
-    .fa-forward, .fa-backward,.fa-list, .fa-download {
+    .fa-forward, .fa-backward, .fa-list, .fa-download {
         color: #cccccc;
         font-size: medium;
         cursor: pointer;
@@ -101,6 +101,54 @@
         overflow: auto;
     }
 
+    #list a{
+        color:#ccc;
+        text-decoration: none;
+    }
+    #list a:hover{
+
+        text-decoration: underline;
+    }
+
+    /*.fa-music {*/
+
+        /*position: absolute;*/
+        /*!* top: -51px; *!*/
+
+        /*font-size: large;*/
+        /*z-index: 2;*/
+        /*opacity: 0;*/
+        /*color: #FFC058;*/
+        /*!*-webkit-animation: show 3s linear 2s;*!*/
+    /*}*/
+
+    /*@-webkit-keyframes show {*/
+        /*from {*/
+            /*opacity: 1;*/
+            /*-webkit-transform: translateY(-10px);*/
+
+        /*}*/
+        /*to {*/
+
+            /*-webkit-transform: translateY(-60px);*/
+        /*}*/
+
+    /*}*/
+
+    /*@keyframes show {*/
+    /*10%{*/
+    /*width: 100px;*/
+    /*}*/
+    /*30%{*/
+    /*width: 250px;*/
+    /*}*/
+    /*60%{*/
+    /*width: 300px;*/
+    /*}*/
+    /*100%{*/
+    /*width: 470px;*/
+    /*}*/
+    /*}*/
     /*.scroll{*/
     /*width:20px;*/
     /*height: 100px;*/
@@ -115,18 +163,19 @@
 <body>
 <iframe src="music.html" name="af"></iframe>
 <div id="playlist">
+    <!--<span class="fa fa-music"></span>-->
     <div id="list" style="display: none">
     </div>
     <div class="scroll"></div>
     <div id="play">
         <img src="img/test.jpg"/>
-        <span class="fa fa-list" ></span>
+        <span class="fa fa-list"></span>
         <span class="fa fa-backward"></span>
         <p class="lyrics">
-           <!--歌词占位-->
+            <!--歌词占位-->
         </p>
         <span class="fa fa-forward"></span>
-        <span class="fa fa-download"></span>
+        <a id="download" href="music/张磊 - 南山南 (Live) (选择导师：那英).mp3" download="mp3"><span class="fa fa-download"></span></a>
         <audio src="" controls preload="none">
 
             <!--<track src="music/Shakira - Try Everything (《疯狂动物城》电影主题曲).lrc" kind="subtitles" srclang="no" label="English">
@@ -164,13 +213,13 @@
             }
     );
     document.querySelector(".fa-list").addEventListener("click", function (e) {
-        var list=document.querySelector("#list");
-       list.style.display=list.style.display=="block"? "none":"block";
+                var list = document.querySelector("#list");
+                list.style.display = list.style.display == "block" ? "none" : "block";
 
             }
     );
-    document.querySelector("audio").addEventListener("ended", function () {
-                //           播放结束；
+    document.querySelector(".fa-download").addEventListener("click", function () {
+
             }
     );
 
